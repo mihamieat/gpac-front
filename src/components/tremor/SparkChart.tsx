@@ -1,5 +1,4 @@
 // Tremor Spark Chart [v0.1.2]
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client";
 
