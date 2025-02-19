@@ -14,11 +14,15 @@ const Overview = () => {
 
   // Fetch hostnames and their overview data
   useEffect(() => {
+    let isCancelled = false;
     const fetchData = async () => {
       setLoading(true);
       try {
         // Fetch the list of hostnames
         const hostnameList = await fetchCustomHostnameList();
+        if (!isCancelled) {
+          setHostnames(hostnameList);
+        }
         setHostnames(hostnameList);
 
         if (hostnameList.length > 0) {
