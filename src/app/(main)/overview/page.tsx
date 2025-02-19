@@ -28,7 +28,7 @@ const Overview = () => {
         if (hostnameList.length > 0) {
           // Fetch overview data for all hostnames
           const results = await Promise.all(
-            hostnameList.map(async (hostname) => {
+            hostnameList.map(async (hostname: string) => {
               try {
                 const data = await fetchOverviewData(hostname);
                 return { hostname, data };
