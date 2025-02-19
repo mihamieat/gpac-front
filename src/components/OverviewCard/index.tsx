@@ -30,7 +30,7 @@ const OverviewCard: React.FC<OverviewCardProps> = ({
         <SparkAreaChart
           data={chartdata}
           categories={["Percent"]}
-          index={"time"}
+          index={"timestamp"}
           colors={["violet"]}
           className="sm:h-10 sm:w-36"
         />
