@@ -36,3 +36,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Github action configuration
+
+Make sure to add the following values to your Github action variables:
+| key | value |
+| ------------------ | ------------------------ |
+| REMOTE_HOST | host ip target to deploy |
+| REMOTE_USER | user of target server |
+| SSH_PRIVATE_KEY | generated private key |
+| SSH_PUBLIC_KEY | associated public key |
+| DOCKERHUB_USERNAME | docker hub username |
+| DOCKERHUB_TOKEN | docker hub token |
+| API_USER | API username |
+| API_PASSWORD | API password |
+| API_URL | API URL |

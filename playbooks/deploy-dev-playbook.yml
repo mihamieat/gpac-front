@@ -1,0 +1,27 @@
+- name: Deploy Gpac-UI Docker App
+  hosts: web
+  become: yes
+  tasks:
+    - name: Pull Docker Image
+      community.docker.docker_image:
+        name: mihamieat/gpac-ui
+        source: pull
+        tag: develop
+        force_source: true
+
+    - name: Stop and remove existing container
+      ansible.builtin.command: |
+        docker rm -f gpac-ui
+      ignore_errors: true
+
+    - name: Run Docker container
+      ansible.builtin.docker_container:
+        name: gpac-ui
+        image: mihamieat/gpac-ui:develop
+        ports:
+          - 80:3000
+        env:
+          NEXT_PUBLIC_API_URL: "{{ api_url }}"
+          NEXT_PUBLIC_API_USERNAME: "{{ api_username }}"
+          NEXT_PUBLIC_API_PASSWORD: "{{ api_password }}"
+        restart_policy: always
